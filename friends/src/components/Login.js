@@ -26,6 +26,7 @@ class Login extends React.Component {
         .then(response => {
             console.log(response)
             localStorage.setItem('token', response.data.payload)
+            this.props.history.push('/protected')
             
         })
         .catch(error => console.log(error))
@@ -39,14 +40,14 @@ class Login extends React.Component {
                     <input 
                     type='text'
                     name='username'
-                    placeholder='username'
+                    placeholder='Please enter a username'
                     value={this.state.credentials.username}
                     onChange={this.handleChange}
                     />
                     <input 
                     type='password'
                     name='password'
-                    placeholder='password'
+                    placeholder='Please enter a password'
                     value={this.state.credentials.password}
                     onChange={this.handleChange}
                     />
